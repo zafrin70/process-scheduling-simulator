@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# ============================================================
-# calculations.sh
-# Common calculation functions for CPU Scheduling Algorithms
-# ============================================================
-
-# ------------------------------------------------------------
-# Calculate Turnaround Time
-# Formula:
-# TAT = Completion Time - Arrival Time
-# ------------------------------------------------------------
 calculate_tat() {
 
     local n=$1
@@ -20,11 +10,8 @@ calculate_tat() {
     done
 }
 
-# ------------------------------------------------------------
 # Calculate Waiting Time
-# Formula:
-# WT = Turnaround Time - Burst Time
-# ------------------------------------------------------------
+
 calculate_wt() {
 
     local n=$1
@@ -35,9 +22,8 @@ calculate_wt() {
     done
 }
 
-# ------------------------------------------------------------
 # Calculate Average Waiting Time
-# ------------------------------------------------------------
+
 average_waiting_time() {
 
     local n=$1
@@ -51,9 +37,7 @@ average_waiting_time() {
     avg_waiting=$(awk "BEGIN {printf \"%.2f\", $sum/$n}")
 }
 
-# ------------------------------------------------------------
 # Calculate Average Turnaround Time
-# ------------------------------------------------------------
 average_turnaround_time() {
 
     local n=$1
@@ -67,10 +51,7 @@ average_turnaround_time() {
     avg_turnaround=$(awk "BEGIN {printf \"%.2f\", $sum/$n}")
 }
 
-# ------------------------------------------------------------
-# Execute all calculations together
-# Every scheduling algorithm will call this function.
-# ------------------------------------------------------------
+# Execute all calculations 
 calculate_all() {
 
     local n=$1

@@ -1,21 +1,11 @@
 #!/bin/bash
 
-# ============================================================
-# fcfs.sh
-# First Come First Served Scheduling Algorithm
-# ============================================================
-
-# calculations.sh must be sourced before using this file.
-# source algorithms/calculations.sh
-
 
 run_fcfs() {
 
     local n=$1
 
-    # --------------------------------------------------------
     # Sort by Arrival Time (Bubble Sort)
-    # --------------------------------------------------------
 
     for ((i=0; i<n-1; i++))
     do
@@ -25,22 +15,18 @@ run_fcfs() {
             if (( arrival[j] > arrival[j+1] ))
             then
 
-                # Swap Arrival Time
                 temp=${arrival[j]}
                 arrival[j]=${arrival[j+1]}
                 arrival[j+1]=$temp
 
-                # Swap Burst Time
                 temp=${burst[j]}
                 burst[j]=${burst[j+1]}
                 burst[j+1]=$temp
 
-                # Swap Process ID
                 temp=${pid[j]}
                 pid[j]=${pid[j+1]}
                 pid[j+1]=$temp
 
-                # Swap Priority
                 temp=${priority[j]}
                 priority[j]=${priority[j+1]}
                 priority[j+1]=$temp
@@ -50,9 +36,7 @@ run_fcfs() {
     done
 
 
-    # --------------------------------------------------------
     # Completion Time Calculation
-    # --------------------------------------------------------
 
     current_time=0
 
@@ -80,10 +64,7 @@ run_fcfs() {
 
     done
 
-
-    # --------------------------------------------------------
     # Calculate TAT, WT, Averages
-    # --------------------------------------------------------
 
     calculate_all "$n"
 
